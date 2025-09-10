@@ -9,17 +9,48 @@ num2 = int.Parse(Console.ReadLine());
 Console.WriteLine("Digite o terceiro valor, sabendo que ele não pode ser igual o primeiro e nem ao segundo valor!");
 num3 = int.Parse(Console.ReadLine());
 
-
-if (num1 >= num2)
+int menor, meio, maior;
+if (num1 <= num2 && num1 <= num3)
 {
-    Console.WriteLine($"O primeiro valor é maior que o segundo e o terceiro valor!");
+    menor = num1;
+    if (num2 <= num3)
+    {
+        meio = num2;
+        maior = num3;
+    }
+    else
+    {
+        meio = num3;
+        maior = num2;
+    }
 }
-else if (num2 >= num3)
+else if (num2 <= num1 && num2 <= num3)
 {
-    Console.WriteLine($"O segundo valor é maior que o primeiro e o terceiro valor!");
+    menor = num2;
+    if (num1 <= num3)
+    {
+        meio = num1;
+        maior = num3;
+    }
+    else
+    {
+        meio = num3;
+        maior = num1;
+    }
 }
 else
 {
-    Console.WriteLine($"O terceiro valor é maior que o primeiro e o segundo valor!");
+    menor = num3;                             
+    if (num1 <= num2)
+    {
+        meio = num1;
+        maior = num2;
+    }
+    else
+    {
+        meio = num2;
+        maior = num1;
+    }
 }
 
+Console.WriteLine($"Ordem crescente: {menor}, {meio}, {maior}");
